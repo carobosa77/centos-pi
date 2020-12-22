@@ -61,3 +61,14 @@ The process performs the following actions:
  8. Finally, deletes the temporary directory.
 
 **About LVM**: When creating this scripts, lvm was not available in the CentOS image for Raspberry Pi.
+
+## dd.env
+
+This script includes the auxiliary processes to write the image content into a SD card.
+
+This script is invoked by *`dd_partitions.env`* and for any script which will write images. The script *`dd_partitions.env`* helps building images, but sometimes the image can't be parametrized to use *`dd_partitions.env`*, so you can take the parts you need and leave what is useless.
+
+The following scripts uses the auxiliary processes to write the image, but can't be constrainted to use *`dd_partitions.env`*, or the tries I made didn't work. Must be executed by the root user. Before using them, the corresponding image should be downloaded.
+
+- The script **`CentOS-Userland-8-stream-aarch64-RaspberryPI-Minimal-4-sda.bash`** writes [CentOS 8 on a Raspberry Pi](https://people.centos.org/pgreco/CentOS-Userland-8-stream-aarch64-RaspberryPI-Minimal-4/).
+

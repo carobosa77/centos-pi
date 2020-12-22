@@ -3,7 +3,7 @@
 # Download the image from http://isoredirect.centos.org/altarch/8/isos/armhfp/CentOS-Userland-8-armv7hl-generic-Minimal-1911-sda.raw.xz, or search for an updated image at http://isoredirect.centos.org/altarch/8/isos/armhfp/
 
 # Defines the TARGET device, the IMAGE file and the TEMPorary (working) directory
-TARGET=/dev/mmcblk0
+TARGET=/dev/sdc
 IMAGE=CentOS-Userland-8-armv7hl-generic-Minimal-1911-sda.raw.xz
 TEMP=$( mktemp -d )
 #FORCE=true

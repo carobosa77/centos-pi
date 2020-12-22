@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../do_actions.env ""
+source dd.env ""
 
 ################################################################################
 # Check environment & print usage information
@@ -41,13 +41,5 @@ do_umount ${TARGET}
 ################################################################################
 # Writes the source image to the device
 
-if [ "${IMAGE: -3}" = ".xz" ]; then
-  xzcat ${IMAGE} | dd of=${TARGET} bs=16M status=progress
-elif [ "${IMAGE: -3}" = ".gz" ]; then
-  zcat ${IMAGE} | dd of=${TARGET} bs=16M status=progress
-elif [ "${1:(-4)}" = ".zip" ]; then
-  unzip -p ${IMAGE} | dd of=${TARGET} bs=16M status=progress
-else
-  dd if=${IMAGE} of=${TARGET} bs=16M status=progress
-fi
+do_dd ${IMAGE} ${TARGET}
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../do_actions.env ""
+source ../centos/do_actions.env ""
 
 PORT="22"
 NETMASK="32"

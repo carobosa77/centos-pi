@@ -6,9 +6,9 @@ This folder (https://github.com/carobosa77/centos-pi/centos) includes the script
 
 These steps are realized in the Raspberry Pi itself:
 
-0) Update your OS: `dnf update`.
+0) Install the EPEL repository: `dnf install epel-release`; and update your OS: `dnf update`.
 
-1) Install all the packages that will be needed: `dnf install epel-release` and `bash do_actions.env do_dnf_install $( grep do_dnf_install raspberry-pi.bash mail.bash harden.bash | cut -d' ' -f2- | tr '\n' ' ' )`
+1) Install all the packages that will be needed: `bash do_actions.env do_dnf_install $( grep do_dnf_install *.bash | cut -d' ' -f2- | tr '\n' ' ' )`
 
 2) Check that the files which will be modified did not change after the script was developed: `find backup/ -type f | while read FILE; do diff --brief ${FILE} /${FILE#*/}; done`.
 
@@ -17,6 +17,8 @@ These steps are realized in the Raspberry Pi itself:
 4) At this time, a MTA is useful to receive the generated mail as notifications of the processes to be configured later. Run: `mail.bash`
 
 5) Harden your CentOS installation: `harden.bash`. Note: This script only applies the appropriate measures for a lone machine.
+
+6) Realize final actions: `final.bash`. This scripts contains the last steps indicated by the previous scripts, to finalize them.
 
 Other checks:
 

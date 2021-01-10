@@ -48,7 +48,7 @@ EOD
 ${TARGET_PARTITIONS_PREFIX}1 /boot/efi vfat defaults,noatime,nosuid,noexec,nodev 0 2
 ${TARGET_PARTITIONS_PREFIX}2 /boot ext3 defaults,noatime,nosuid,noexec,nodev 0 2
 ${TARGET_PARTITIONS_PREFIX}3 / ext3 defaults,noatime 0 1
-${TARGET_PARTITIONS_PREFIX}5 none swap defaults,noatime 0 0
+${TARGET_PARTITIONS_PREFIX}5 none swap defaults 0 0
 ${TARGET_PARTITIONS_PREFIX}6 /tmp ext3 defaults,noatime,nosuid,noexec,nodev 0 2
 ${TARGET_PARTITIONS_PREFIX}7 /var ext3 defaults,noatime,nosuid 0 2
 ${TARGET_PARTITIONS_PREFIX}8 /var/tmp ext3 defaults,noatime,nosuid,noexec,nodev 0 2

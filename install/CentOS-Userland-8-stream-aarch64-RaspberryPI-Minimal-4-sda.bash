@@ -43,7 +43,7 @@ ${TARGET_PARTITIONS_PREFIX}2 swap swap    defaults,noatime 0 0
 EOD
   cat << EOD | tr -s ' '
 ${TARGET_PARTITIONS_PREFIX}1 /boot vfat defaults,noatime,nosuid,noexec,nodev 0 2
-${TARGET_PARTITIONS_PREFIX}2 none swap defaults,noatime 0 0
+${TARGET_PARTITIONS_PREFIX}2 none swap defaults 0 0
 ${TARGET_PARTITIONS_PREFIX}3 / ext3 defaults,noatime 0 1
 ${TARGET_PARTITIONS_PREFIX}5 /tmp ext3 defaults,noatime,nosuid,noexec,nodev 0 2
 ${TARGET_PARTITIONS_PREFIX}6 /var ext3 defaults,noatime,nosuid 0 2
@@ -87,7 +87,7 @@ touch ${SOURCE_MOUNT}/.autorelabel
 ################################################################################
 # Build fstab file
 
-cp -v ${SOURCE_MOUNT}/etc/fstab ${TEMP}/fstab
+sed 's/swap swap    defaults,noatime/none swap    defaults/' ${SOURCE_MOUNT}/etc/fstab > ${TEMP}/fstab
 do_fstab | grep -v "${TARGET_PARTITIONS_PREFIX}[123] " | \
   sort -k 2,2 | do_fstab_dev2uuid >> ${TEMP}/fstab
 cp -fbv --no-preserve=all ${TEMP}/fstab ${SOURCE_MOUNT}/etc/fstab
